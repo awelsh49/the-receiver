@@ -80,32 +80,17 @@ button {
   pointer-events: none;
 }
 
-/* Temporary cinematic background until the real artwork is added. */
 .background-atmosphere {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 66% 18%, rgba(142, 181, 176, 0.15), transparent 26%),
-    radial-gradient(circle at 36% 48%, rgba(48, 86, 78, 0.20), transparent 34%),
-    radial-gradient(circle at 50% 88%, rgba(19, 80, 62, 0.22), transparent 31%),
-    linear-gradient(180deg, #020405 0%, #061010 36%, #030606 100%);
+    radial-gradient(circle at 50% 38%, rgba(4, 12, 13, 0.08), transparent 26%),
+    radial-gradient(circle at 50% 86%, rgba(0, 0, 0, 0.34), transparent 34%);
+  pointer-events: none;
 }
 
 .background-atmosphere::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 95px;
-  width: 330px;
-  height: 310px;
-  transform: translateX(-50%);
-  background:
-    linear-gradient(90deg, transparent 0 16%, rgba(120, 160, 150, 0.06) 16% 17%, transparent 17% 100%),
-    linear-gradient(110deg, transparent 0 54%, rgba(180, 220, 210, 0.10) 54% 55%, transparent 55% 100%),
-    radial-gradient(ellipse at center, rgba(120, 190, 170, 0.10), transparent 56%);
-  opacity: 0.65;
-  filter: blur(0.2px);
-  pointer-events: none;
+  content: none;
 }
 
 .background-vignette {
