@@ -1,9 +1,3 @@
-/*
-  The Receiver — Home Page JS
-
-  Update these URLs to point to your real Episode 1 and episode list pages.
-*/
-
 const ROUTES = {
   episodeOne: "./episode-1.html",
   episodes: "./episodes.html"
