@@ -1093,3 +1093,120 @@ button {
     animation: none !important;
   }
 }
+/* Tutorial complete modal additions */
+
+.tutorial-complete-modal {
+  grid-template-columns: 42px 1fr;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+}
+
+.tutorial-complete {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(168, 232, 216, 0.20);
+}
+
+.tutorial-complete h3 {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(168, 232, 216, 0.86);
+}
+
+.tutorial-complete p {
+  margin: 9px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.80);
+}
+
+.feedback-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.feedback-buttons button {
+  width: 54px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  border: 1px solid rgba(168, 232, 216, 0.22);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 22px;
+}
+
+.feedback-buttons button:hover,
+.feedback-buttons button.is-selected {
+  border-color: rgba(168, 232, 216, 0.64);
+  background: rgba(8, 61, 50, 0.42);
+}
+
+.email-capture {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.email-capture label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.email-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.email-row input {
+  min-width: 0;
+  height: 48px;
+  padding: 0 13px;
+  border-radius: 12px;
+  border: 1px solid rgba(168, 232, 216, 0.18);
+  outline: none;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.email-row input::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.email-row input:focus {
+  border-color: rgba(168, 232, 216, 0.62);
+}
+
+.email-row button {
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(168, 232, 216, 0.56);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(8, 61, 50, 0.54);
+}
+
+@media (max-width: 420px) {
+  .email-row {
+    grid-template-columns: 1fr;
+  }
+
+  .email-row button {
+    width: 100%;
+  }
+}
