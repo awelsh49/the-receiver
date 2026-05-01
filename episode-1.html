@@ -31,22 +31,8 @@
           <div class="episode-brand">
             <span class="episode-brand-mark" aria-hidden="true">
               <svg viewBox="0 0 48 48" role="img">
-                <circle
-                  cx="24"
-                  cy="24"
-                  r="22"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.4"
-                />
-                <path
-                  d="M6 24h10l3-8 5 18 5-26 5 16h8"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.6"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+                <circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="1.4" />
+                <path d="M6 24h10l3-8 5 18 5-26 5 16h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </span>
             <span>The Receiver</span>
@@ -120,7 +106,7 @@
         <section class="episode-actions">
           <a
             class="primary-action episode-primary-action"
-            href="./assets/e1.usdz"
+            href="./assets/signal-01.usdz"
             rel="ar"
             data-action="open-receiver"
           >
@@ -147,7 +133,11 @@
             <span class="chevron" aria-hidden="true"></span>
           </a>
 
-          <form class="response-panel" data-response-form>
+          <form
+            class="response-panel"
+            data-response-form
+            data-signal-endpoint="/api/signal-01/respond"
+          >
             <label for="signal-response">
               If you think the signal is trying to communicate, how would you respond?
             </label>
@@ -180,34 +170,34 @@
             </div>
           </div>
 
-<div class="success-modal" data-success-panel hidden>
-  <div class="success-modal-backdrop" data-success-close></div>
+          <div class="success-modal" data-success-panel hidden>
+            <div class="success-modal-backdrop" data-success-close></div>
 
-  <div
-    class="reaction-panel reaction-panel-success success-modal-card"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="success-modal-title"
-  >
-    <button class="success-modal-close" type="button" aria-label="Close" data-success-close>
-      ×
-    </button>
+            <div
+              class="reaction-panel reaction-panel-success success-modal-card"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="success-modal-title"
+            >
+              <button class="success-modal-close" type="button" aria-label="Close" data-success-close>
+                ×
+              </button>
 
-    <div class="reaction-icon" aria-hidden="true">✓</div>
+              <div class="reaction-icon" aria-hidden="true">✓</div>
 
-    <div class="reaction-copy">
-      <h2 id="success-modal-title">Communication received</h2>
-      <p>
-        The signal in the lamp glows as if it received the communication back, then disappears entirely.
-      </p>
-    </div>
+              <div class="reaction-copy">
+                <h2 id="success-modal-title">Communication received</h2>
+                <p>
+                  The signal in the lamp glows as if it received the communication back, then disappears entirely.
+                </p>
+              </div>
 
-    <a class="signal-02-link" href="./episode-2.html">
-      <span>Signal 02 is now open</span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-</div>
+              <a class="signal-02-link" href="./episode-2.html">
+                <span>Signal 02 is now open</span>
+                <span aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
 
           <p class="device-note">
             This experience is only available on iPhone or iPad.
