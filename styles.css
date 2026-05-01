@@ -2,9 +2,7 @@
   The Receiver — Home Page
 
   Required asset:
-  - /assets/home-background-placeholder.png
-
-  Replace that file with your final rainy road / telecom tower background.
+  - /assets/the_receiver_index_background.png
 */
 
 :root {
@@ -68,7 +66,6 @@ button {
     inset 0 0 0 1px rgba(255, 255, 255, 0.035);
 }
 
-/* Replace this with final background. Set opacity to 1 once the image is ready. */
 .background-image {
   position: absolute;
   inset: 0;
@@ -76,6 +73,7 @@ button {
   height: 100%;
   min-height: 860px;
   object-fit: cover;
+  object-position: center center;
   opacity: 1;
   pointer-events: none;
 }
@@ -99,9 +97,9 @@ button {
   background:
     linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.64) 0%,
-      rgba(0, 0, 0, 0.30) 22%,
-      rgba(0, 0, 0, 0.18) 42%,
+      rgba(0, 0, 0, 0.70) 0%,
+      rgba(0, 0, 0, 0.38) 22%,
+      rgba(0, 0, 0, 0.20) 42%,
       rgba(0, 0, 0, 0.78) 76%,
       rgba(0, 0, 0, 0.96) 100%
     ),
@@ -111,7 +109,7 @@ button {
 .scanlines {
   position: absolute;
   inset: 0;
-  opacity: 0.055;
+  opacity: 0.035;
   background-image: linear-gradient(
     to bottom,
     transparent 0,
@@ -125,19 +123,26 @@ button {
 .top-fade {
   position: absolute;
   inset: 0 0 auto 0;
-  height: 185px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.90), transparent);
+  height: 210px;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.96) 0%,
+      rgba(0, 0, 0, 0.88) 42%,
+      rgba(0, 0, 0, 0.52) 72%,
+      transparent 100%
+    );
   pointer-events: none;
 }
 
 .mock-status-bar {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 21px 40px 0;
-  font-size: 15px;
+  padding: 18px 38px 0;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: rgba(255, 255, 255, 0.96);
@@ -168,47 +173,49 @@ button {
   min-height: 812px;
   display: flex;
   flex-direction: column;
-  padding: 38px 36px 34px;
+  padding: 34px 36px 34px;
 }
 
 .app-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 18px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 15px;
+  gap: 13px;
   color: var(--text);
   text-decoration: none;
   min-width: 0;
+  flex: 1;
 }
 
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   flex: 0 0 auto;
   color: rgba(255, 255, 255, 0.92);
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.36);
-  filter: drop-shadow(0 0 18px rgba(205, 255, 244, 0.12));
+  background: rgba(0, 0, 0, 0.28);
+  filter: drop-shadow(0 0 14px rgba(205, 255, 244, 0.10));
 }
 
 .brand-mark svg {
-  width: 47px;
-  height: 47px;
+  width: 42px;
+  height: 42px;
 }
 
 .brand-name {
   font-family: var(--font-mono);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   text-transform: uppercase;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.30em;
   color: rgba(255, 255, 255, 0.94);
   white-space: nowrap;
   text-shadow: 0 0 14px rgba(255, 255, 255, 0.12);
@@ -218,21 +225,23 @@ button {
   display: grid;
   place-items: center;
   gap: 5px;
-  width: 56px;
-  height: 56px;
+  width: 50px;
+  height: 50px;
   flex: 0 0 auto;
   padding: 0;
-  border-radius: 19px;
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  color: rgba(255, 255, 255, 0.88);
-  background: rgba(255, 255, 255, 0.025);
+  border-radius: 17px;
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  color: rgba(255, 255, 255, 0.84);
+  background: rgba(0, 0, 0, 0.20);
   backdrop-filter: blur(8px);
-  box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.03);
+  box-shadow:
+    inset 0 0 14px rgba(255, 255, 255, 0.03),
+    0 0 20px rgba(0, 0, 0, 0.22);
 }
 
 .menu-button span {
   display: block;
-  width: 25px;
+  width: 22px;
   height: 1.5px;
   border-radius: 999px;
   background: currentColor;
@@ -520,18 +529,23 @@ button {
   }
 
   .brand-name {
-    font-size: 16px;
-    letter-spacing: 0.30em;
+    font-size: 15px;
+    letter-spacing: 0.27em;
   }
 
   .brand-mark {
-    width: 46px;
-    height: 46px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-mark svg {
+    width: 42px;
+    height: 42px;
   }
 
   .menu-button {
-    width: 56px;
-    height: 56px;
+    width: 50px;
+    height: 50px;
   }
 
   .hero {
@@ -574,7 +588,7 @@ button {
 
   .brand-name {
     font-size: 14px;
-    letter-spacing: 0.26em;
+    letter-spacing: 0.24em;
   }
 
   .hero h1 {
