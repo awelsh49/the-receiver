@@ -118,15 +118,12 @@
         </aside>
 
         <section class="episode-actions">
-          <!-- Replace ./assets/signal-01.usdz with your final USDZ file path. -->
           <a
             class="primary-action episode-primary-action"
             href="./assets/signal-01.usdz"
             rel="ar"
             data-action="open-receiver"
           >
-            <!-- Apple Quick Look prefers an image child inside rel=ar links.
-                 This transparent SVG keeps the markup compatible without affecting the layout. -->
             <img
               class="ar-anchor-image"
               src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E"
@@ -165,19 +162,28 @@
                 data-response-input
               />
 
-              <button type="submit">
+              <button type="submit" data-response-submit>
                 Talk to the Signal
                 <span aria-hidden="true"></span>
               </button>
             </div>
-
-            <p class="response-message" data-response-message aria-live="polite"></p>
           </form>
 
-          <div class="success-panel" data-success-panel hidden>
-            <div class="success-icon" aria-hidden="true">✓</div>
+          <div class="reaction-panel reaction-panel-failed" data-failure-panel hidden>
+            <div class="reaction-icon" aria-hidden="true">—</div>
 
-            <div class="success-copy">
+            <div class="reaction-copy">
+              <h2>The signal did not react</h2>
+              <p>
+                It must be expecting something else.
+              </p>
+            </div>
+          </div>
+
+          <div class="reaction-panel reaction-panel-success" data-success-panel hidden>
+            <div class="reaction-icon" aria-hidden="true">✓</div>
+
+            <div class="reaction-copy">
               <h2>Communication received</h2>
               <p>
                 The signal in the lamp glows as if it received the communication back, then disappears entirely.
