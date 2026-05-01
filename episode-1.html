@@ -1,5 +1,203 @@
-<a class="button ar"
-   href="/assets/models/E1.usdz"
-   rel="ar">
-  View the object in AR
-</a>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#050808" />
+  <title>The Receiver — Signal 01</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="phone-shell episode-shell" aria-label="The Receiver Signal 01 screen">
+      <img
+        class="background-image"
+        src="./assets/the_receiver_index_background.png"
+        alt=""
+        aria-hidden="true"
+      />
+
+      <div class="background-atmosphere" aria-hidden="true"></div>
+      <div class="background-vignette episode-vignette" aria-hidden="true"></div>
+      <div class="scanlines" aria-hidden="true"></div>
+      <div class="top-fade episode-top-fade" aria-hidden="true"></div>
+
+      <div class="episode-content">
+        <header class="episode-header">
+          <a class="back-link" href="./index.html" aria-label="Back to The Receiver">
+            <span aria-hidden="true"></span>
+          </a>
+
+          <div class="episode-brand">
+            <span class="episode-brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <circle
+                  cx="24"
+                  cy="24"
+                  r="22"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+                <path
+                  d="M6 24h10l3-8 5 18 5-26 5 16h8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            <span>The Receiver</span>
+          </div>
+        </header>
+
+        <section class="episode-title-block" aria-labelledby="episode-title">
+          <p class="episode-kicker">Season 1 · Episode 1</p>
+          <h1 id="episode-title">Signal 01</h1>
+          <p class="episode-subtitle">The Night It Appeared</p>
+
+          <div class="episode-wave-divider" aria-hidden="true">
+            <span></span>
+            <svg viewBox="0 0 120 24" focusable="false">
+              <path d="M0 12H38L42 8L46 16L50 6L55 19L60 5L65 18L70 9L74 12H120" />
+            </svg>
+            <span></span>
+          </div>
+        </section>
+
+        <section class="episode-story">
+          <p>
+            Brody Johnson is twenty-seven. He works late shifts at a distribution warehouse on the edge of Alder Reach, a small town in northern Ontario. Most people call it industrial. Brody calls it forgettable.
+          </p>
+
+          <p>
+            The town sits beneath a web of towers and lines that hum day and night. Microwave dishes. Power stations. Fiber hubs. Infrastructure people drive past without thinking about. It’s not a place you visit. It’s a place you live your life in. Quiet. Cold. Predictable.
+          </p>
+
+          <p>
+            On a Thursday in early October, Brody stepped onto his back deck during a break. He was taking a picture of the rain coming down Harding Street.
+          </p>
+
+          <p>
+            That’s when he saw it.
+          </p>
+
+          <p>
+            In the phone’s screen, something appeared in the frame that wasn’t on the deck.
+          </p>
+
+          <p>
+            It looked like a piece of machinery — part lamp, part signal, part old instrument. Dark metal. Glass.
+          </p>
+
+          <p>
+            It stayed there when he moved the phone. Not in the world exactly. In the frame.
+          </p>
+
+          <p>
+            Brody doesn’t know what it is. But it feels like it’s trying to communicate.
+          </p>
+        </section>
+
+        <aside class="signal-card">
+          <div class="signal-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48">
+              <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="1.2" />
+              <path d="M6 24h10l3-8 5 18 5-26 5 16h8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+
+          <div>
+            <h2>A recorded signal remains.</h2>
+            <p>
+              What does the signal mean? Is it trying to communicate something? Look closely. If it is, answer through the Receiver.
+            </p>
+          </div>
+        </aside>
+
+        <section class="episode-actions">
+          <!-- Replace ./assets/signal-01.usdz with your final USDZ file path. -->
+          <a
+            class="primary-action episode-primary-action"
+            href="./assets/signal-01.usdz"
+            rel="ar"
+            data-action="open-receiver"
+          >
+            <!-- Apple Quick Look prefers an image child inside rel=ar links.
+                 This transparent SVG keeps the markup compatible without affecting the layout. -->
+            <img
+              class="ar-anchor-image"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <span class="action-icon receiver-icon" aria-hidden="true">
+              <span class="corner top-left"></span>
+              <span class="corner top-right"></span>
+              <span class="corner bottom-left"></span>
+              <span class="corner bottom-right"></span>
+              <span class="target-ring"></span>
+            </span>
+
+            <span class="action-text">
+              <span class="action-title">Open the Receiver</span>
+              <span class="action-subtitle">View Signal 01</span>
+            </span>
+
+            <span class="chevron" aria-hidden="true"></span>
+          </a>
+
+          <form class="response-panel" data-response-form>
+            <label for="signal-response">
+              If you think the signal is trying to communicate, how would you respond?
+            </label>
+
+            <div class="response-row">
+              <input
+                id="signal-response"
+                name="signal-response"
+                type="text"
+                autocomplete="off"
+                placeholder="Type your response..."
+                data-response-input
+              />
+
+              <button type="submit">
+                Talk to the Signal
+                <span aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <p class="response-message" data-response-message aria-live="polite"></p>
+          </form>
+
+          <div class="success-panel" data-success-panel hidden>
+            <div class="success-icon" aria-hidden="true">✓</div>
+
+            <div class="success-copy">
+              <h2>Communication received</h2>
+              <p>
+                The signal in the lamp glows as if it received the communication back, then disappears entirely.
+              </p>
+            </div>
+
+            <a class="signal-02-link" href="./episode-2.html">
+              <span>Signal 02 is now open</span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <p class="device-note">
+            This experience is only available on iPhone or iPad.
+          </p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
