@@ -226,34 +226,59 @@
             </div>
           </div>
 
-          <div class="success-modal" data-success-panel hidden>
-            <div class="success-modal-backdrop" data-success-close></div>
+<div class="success-modal" data-success-panel hidden>
+  <div class="success-modal-backdrop" data-success-close></div>
 
-            <div
-              class="reaction-panel reaction-panel-success success-modal-card"
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="success-modal-title"
-            >
-              <button class="success-modal-close" type="button" aria-label="Close" data-success-close>
-                ×
-              </button>
+  <div
+    class="reaction-panel reaction-panel-success success-modal-card tutorial-complete-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="success-modal-title"
+  >
+    <button class="success-modal-close" type="button" aria-label="Close" data-success-close>
+      ×
+    </button>
 
-              <div class="reaction-icon" aria-hidden="true">✓</div>
+    <div class="reaction-icon" aria-hidden="true">✓</div>
 
-              <div class="reaction-copy">
-                <h2 id="success-modal-title">Coordinates received</h2>
-                <p>
-                  The two spheres draw together. A thin line stabilizes between them. Then the formation vanishes.
-                </p>
-              </div>
+    <div class="reaction-copy">
+      <h2 id="success-modal-title">Coordinates received</h2>
+      <p>
+        The two spheres draw together. A thin line stabilizes between them. Then the formation vanishes.
+      </p>
+    </div>
 
-              <a class="signal-02-link" href="./episode-3.html">
-                <span>Signal 03 is now open</span>
-                <span aria-hidden="true"></span>
-              </a>
-            </div>
-          </div>
+    <div class="tutorial-complete">
+      <h3>End of tutorial</h3>
+      <p>
+        You reached the end of the first playable prototype. Did this make you want to continue?
+      </p>
+
+      <div class="feedback-buttons" aria-label="Prototype feedback">
+        <button type="button" data-feedback="up">👍</button>
+        <button type="button" data-feedback="down">👎</button>
+      </div>
+
+      <form class="email-capture" data-email-form>
+        <label for="prototype-email">Get updates when the next signal is ready.</label>
+
+        <div class="email-row">
+          <input
+            id="prototype-email"
+            type="email"
+            name="email"
+            placeholder="Email address"
+            autocomplete="email"
+          />
+
+          <button type="submit">
+            Notify me
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
           <p class="device-note">
             This experience is only available on iPhone or iPad.
