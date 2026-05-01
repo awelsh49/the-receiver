@@ -1422,3 +1422,77 @@ button {
     font-size: 12.5px;
   }
 }
+/* Success modal */
+
+.success-modal[hidden] {
+  display: none;
+}
+
+.success-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.success-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(120, 255, 220, 0.10), transparent 34%),
+    rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(5px);
+}
+
+.success-modal-card {
+  position: relative;
+  width: min(100%, 360px);
+  z-index: 1;
+  animation: receiver-modal-in 180ms ease-out;
+}
+
+.success-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(168, 232, 216, 0.22);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(0, 0, 0, 0.34);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.success-modal-close:hover {
+  border-color: rgba(168, 232, 216, 0.48);
+  background: rgba(8, 61, 50, 0.42);
+}
+
+@keyframes receiver-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 420px) {
+  .success-modal {
+    padding: 22px;
+  }
+
+  .success-modal-card {
+    width: 100%;
+  }
+}
