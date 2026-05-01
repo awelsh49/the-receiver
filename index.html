@@ -1,112 +1,125 @@
-import React from "react";
-import { ChevronRight, Menu, Radio, List } from "lucide-react";
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#050808" />
+  <title>The Receiver</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="phone-shell" aria-label="The Receiver home screen">
+      <!-- Replace this image with your final rainy road / telecom tower background. -->
+      <img
+        class="background-image"
+        src="./assets/home-background-placeholder.png"
+        alt=""
+        aria-hidden="true"
+      />
 
-export default function TheReceiverHomePage() {
-  return (
-    <div className="min-h-screen w-full bg-black text-white flex items-center justify-center p-4">
-      <div className="relative w-full max-w-[430px] min-h-[860px] overflow-hidden rounded-[2.25rem] border border-white/10 bg-[#050808] shadow-2xl">
-        {/* IMAGE PLACEHOLDER: full-screen rainy road / towers background. Replace this div with an img. */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-0 bg-transparent"
-          style={{ minHeight: "860px" }}
-        />
+      <div class="background-atmosphere" aria-hidden="true"></div>
+      <div class="background-vignette" aria-hidden="true"></div>
+      <div class="scanlines" aria-hidden="true"></div>
+      <div class="top-fade" aria-hidden="true"></div>
 
-        {/* Temporary atmosphere until the real background image is dropped in */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_55%_22%,rgba(104,146,145,0.18),transparent_31%),radial-gradient(circle_at_50%_78%,rgba(45,90,75,0.2),transparent_34%),linear-gradient(180deg,#020506_0%,#061011_38%,#030505_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0.15)_28%,rgba(0,0,0,0.88)_80%,rgba(0,0,0,0.98)_100%)]" />
-        <div className="absolute inset-0 opacity-[0.07] bg-[linear-gradient(to_bottom,transparent_0,transparent_6px,rgba(255,255,255,0.55)_7px)] bg-[length:100%_8px]" />
-        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-black/85 to-transparent" />
-
-        {/* Fake device status area for mockup only. Remove in production. */}
-        <div className="relative z-10 flex items-center justify-between px-10 pt-5 text-[17px] font-semibold tracking-[-0.02em] text-white/95">
-          <span>9:41</span>
-          <div className="flex items-center gap-1.5 text-white/90">
-            <span className="h-3 w-5 rounded-[3px] border border-white/80 relative after:absolute after:-right-1 after:top-1 after:h-1.5 after:w-0.5 after:rounded-r after:bg-white/70" />
-          </div>
-        </div>
-
-        <main className="relative z-10 flex min-h-[812px] flex-col px-9 pb-8 pt-8">
-          <header className="flex items-center justify-between">
-            <div className="flex items-center gap-5">
-              {/* IMAGE PLACEHOLDER: logo mark. Replace with SVG/image. */}
-              <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-white/55 bg-black/35 shadow-[0_0_28px_rgba(205,255,244,0.12)]">
-                <Radio size={25} strokeWidth={1.3} className="text-white/90" />
-              </div>
-              <div className="text-[22px] uppercase tracking-[0.38em] text-white/90">The Receiver</div>
-            </div>
-            <button className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.03] text-white/80 backdrop-blur-sm">
-              <Menu size={28} strokeWidth={1.6} />
-            </button>
-          </header>
-
-          <section className="mt-[310px]">
-            <h1 className="text-[52px] leading-[1.08] font-light uppercase tracking-[0.28em] text-white drop-shadow-[0_0_18px_rgba(255,255,255,0.35)]">
-              The<br />Receiver
-            </h1>
-
-            <div className="mt-8 flex items-center gap-3 text-white/30">
-              <div className="h-px flex-1 bg-white/25" />
-              <div className="h-4 w-14 opacity-70">
-                {/* IMAGE PLACEHOLDER: small waveform line graphic. Replace with SVG/image. */}
-                <div className="relative h-full w-full opacity-100">
-                  <svg viewBox="0 0 120 24" className="h-full w-full" fill="none">
-                    <path
-                      d="M0 12H38L42 8L46 16L50 6L55 19L60 5L65 18L70 9L74 12H120"
-                      stroke="currentColor"
-                      strokeWidth="1.3"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <div className="h-px flex-1 bg-white/25" />
-            </div>
-
-            <p className="mt-9 max-w-[330px] text-[20px] leading-[1.55] text-stone-200/90 tracking-[-0.01em]">
-              On a cold, dark, otherwise ordinary evening, Brody Johnson was taking a picture of the rain when something appeared in the frame that wasn’t in the scene.
-            </p>
-
-            <p className="mt-7 text-[20px] leading-[1.5] text-stone-200/90 tracking-[-0.01em]">
-              Brody’s world is about to become anything but ordinary.
-            </p>
-          </section>
-
-          <section className="mt-auto space-y-4 pt-10">
-            <button className="group flex w-full items-center justify-between rounded-2xl border border-emerald-100/55 bg-emerald-950/30 px-6 py-5 text-left shadow-[0_0_34px_rgba(120,255,220,0.16),inset_0_0_18px_rgba(167,243,208,0.04)] backdrop-blur-sm">
-              <div className="flex items-center gap-5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-emerald-100/25 bg-black/25 text-emerald-50">
-                  <span className="relative block h-7 w-7 rounded-full border border-current after:absolute after:left-1/2 after:top-1/2 after:h-2 after:w-2 after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:bg-current">
-                    <span className="absolute -left-2 top-1 h-2 w-2 border-l border-t border-current" />
-                    <span className="absolute -right-2 top-1 h-2 w-2 border-r border-t border-current" />
-                    <span className="absolute -left-2 bottom-1 h-2 w-2 border-b border-l border-current" />
-                    <span className="absolute -right-2 bottom-1 h-2 w-2 border-b border-r border-current" />
-                  </span>
-                </div>
-                <div>
-                  <div className="text-[20px] uppercase tracking-[0.22em] text-white">Begin Season 1</div>
-                  <div className="mt-1 text-[14px] uppercase tracking-[0.22em] text-emerald-100/60">Play Signal 01</div>
-                </div>
-              </div>
-              <ChevronRight size={31} strokeWidth={1.5} className="text-white/90 transition-transform group-hover:translate-x-1" />
-            </button>
-
-            <button className="group flex w-full items-center justify-between rounded-2xl border border-white/12 bg-black/28 px-6 py-5 text-left backdrop-blur-sm">
-              <div className="flex items-center gap-5">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.025] text-white/50">
-                  <List size={26} strokeWidth={1.3} />
-                </div>
-                <div>
-                  <div className="text-[19px] uppercase tracking-[0.24em] text-white/58">View Episodes</div>
-                  <div className="mt-1 text-[13px] uppercase tracking-[0.22em] text-white/35">See all signals</div>
-                </div>
-              </div>
-              <ChevronRight size={30} strokeWidth={1.4} className="text-white/45 transition-transform group-hover:translate-x-1" />
-            </button>
-          </section>
-        </main>
+      <!-- Mock phone status bar. Remove this block for production if desired. -->
+      <div class="mock-status-bar" aria-hidden="true">
+        <span>9:41</span>
+        <span class="battery-icon"></span>
       </div>
-    </div>
-  );
-}
 
+      <div class="content">
+        <header class="app-header">
+          <a class="brand" href="#" aria-label="The Receiver home">
+            <!-- Replace this inline SVG with a final logo image/SVG if desired. -->
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48" role="img">
+                <circle
+                  cx="24"
+                  cy="24"
+                  r="22"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+                <path
+                  d="M6 24h10l3-8 5 18 5-26 5 16h8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            <span class="brand-name">The Receiver</span>
+          </a>
+
+          <button class="menu-button" type="button" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </header>
+
+        <section class="hero" aria-labelledby="home-title">
+          <h1 id="home-title">The<br />Receiver</h1>
+
+          <div class="wave-divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <svg viewBox="0 0 120 24" focusable="false">
+              <path d="M0 12H38L42 8L46 16L50 6L55 19L60 5L65 18L70 9L74 12H120" />
+            </svg>
+            <span class="divider-line"></span>
+          </div>
+
+          <p class="story-copy">
+            On a cold, dark, otherwise ordinary evening, Brody Johnson was taking a picture of the rain when something appeared in the frame that wasn’t in the scene.
+          </p>
+
+          <p class="story-copy story-copy-last">
+            Brody’s world is about to become anything but ordinary.
+          </p>
+        </section>
+
+        <section class="actions" aria-label="Season actions">
+          <button class="primary-action" type="button" data-action="begin-season">
+            <span class="action-icon receiver-icon" aria-hidden="true">
+              <span class="corner top-left"></span>
+              <span class="corner top-right"></span>
+              <span class="corner bottom-left"></span>
+              <span class="corner bottom-right"></span>
+              <span class="target-ring"></span>
+            </span>
+
+            <span class="action-text">
+              <span class="action-title">Begin Season 1</span>
+              <span class="action-subtitle">Play Signal 01</span>
+            </span>
+
+            <span class="chevron" aria-hidden="true"></span>
+          </button>
+
+          <button class="secondary-action" type="button" data-action="view-episodes">
+            <span class="action-icon list-icon" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+
+            <span class="action-text">
+              <span class="action-title">View Episodes</span>
+              <span class="action-subtitle">See all signals</span>
+            </span>
+
+            <span class="chevron" aria-hidden="true"></span>
+          </button>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
