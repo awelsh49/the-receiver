@@ -7,9 +7,9 @@ function navigateTo(url) {
   window.location.href = url;
 }
 
-function setSubmitState(isSubmitting) {
-  const responseInput = document.querySelector("[data-response-input]");
-  const submitButton = document.querySelector("[data-response-submit]");
+function setSubmitState(form, isSubmitting) {
+  const responseInput = form.querySelector("[data-response-input]");
+  const submitButton = form.querySelector("[data-response-submit]");
 
   if (responseInput) {
     responseInput.disabled = isSubmitting;
@@ -32,9 +32,28 @@ function showSignalResult(result) {
   if (successPanel) successPanel.hidden = true;
 
   if (result.accepted) {
-    if (successPanel) successPanel.hidden = false;
+    if (successPanel) {
+      const successHeading = successPanel.querySelector(".reaction-copy h2");
+      const successCopy = successPanel.querySelector(".reaction-copy p");
+      const successLink = successPanel.querySelector(".signal-02-link");
+
+      if (successHeading && result.title) successHeading.textContent = result.title;
+      if (successCopy && result.message) successCopy.textContent = result.message;
+
+      if (successLink && result.unlock) {
+        successLink.href = result.unlock.href || successLink.href;
+
+        const linkText = successLink.querySelector("span:first-child");
+        if (linkText && result.unlock.label) {
+          linkText.textContent = result.unlock.label;
+        }
+      }
+
+      successPanel.hidden = false;
+    }
 
     if (responseInput) responseInput.disabled = true;
+
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = "Sent";
@@ -59,8 +78,8 @@ function showSignalResult(result) {
   }
 }
 
-async function sendSignalResponse(responseText) {
-  const response = await fetch("/api/signal-01/respond", {
+async function sendSignalResponse(endpoint, responseText) {
+  const response = await fetch(endpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -90,12 +109,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const responseForm = document.querySelector("[data-response-form]");
-  const responseInput = document.querySelector("[data-response-input]");
 
   responseForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    const responseInput = responseForm.querySelector("[data-response-input]");
     const responseText = responseInput?.value.trim() || "";
+    const endpoint = responseForm.dataset.signalEndpoint || "/api/signal-01/respond";
 
     if (!responseText) {
       showSignalResult({
@@ -106,14 +126,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    setSubmitState(true);
+    setSubmitState(responseForm, true);
 
     try {
-      const result = await sendSignalResponse(responseText);
+      const result = await sendSignalResponse(endpoint, responseText);
       showSignalResult(result);
 
       if (!result.accepted) {
-        setSubmitState(false);
+        setSubmitState(responseForm, false);
       }
     } catch (error) {
       showSignalResult({
@@ -121,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
         title: "The receiver lost the signal",
         message: "Try again in a moment."
       });
-      setSubmitState(false);
+      setSubmitState(responseForm, false);
     }
   });
 
