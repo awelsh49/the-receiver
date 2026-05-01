@@ -180,21 +180,34 @@
             </div>
           </div>
 
-          <div class="reaction-panel reaction-panel-success" data-success-panel hidden>
-            <div class="reaction-icon" aria-hidden="true">✓</div>
+<div class="success-modal" data-success-panel hidden>
+  <div class="success-modal-backdrop" data-success-close></div>
 
-            <div class="reaction-copy">
-              <h2>Communication received</h2>
-              <p>
-                The signal in the lamp glows as if it received the communication back, then disappears entirely.
-              </p>
-            </div>
+  <div
+    class="reaction-panel reaction-panel-success success-modal-card"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="success-modal-title"
+  >
+    <button class="success-modal-close" type="button" aria-label="Close" data-success-close>
+      ×
+    </button>
 
-            <a class="signal-02-link" href="./episode-2.html">
-              <span>Signal 02 is now open</span>
-              <span aria-hidden="true"></span>
-            </a>
-          </div>
+    <div class="reaction-icon" aria-hidden="true">✓</div>
+
+    <div class="reaction-copy">
+      <h2 id="success-modal-title">Communication received</h2>
+      <p>
+        The signal in the lamp glows as if it received the communication back, then disappears entirely.
+      </p>
+    </div>
+
+    <a class="signal-02-link" href="./episode-2.html">
+      <span>Signal 02 is now open</span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</div>
 
           <p class="device-note">
             This experience is only available on iPhone or iPad.
