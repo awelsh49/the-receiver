@@ -7,6 +7,81 @@ function navigateTo(url) {
   window.location.href = url;
 }
 
+function setSubmitState(isSubmitting) {
+  const responseInput = document.querySelector("[data-response-input]");
+  const submitButton = document.querySelector("[data-response-submit]");
+
+  if (responseInput) {
+    responseInput.disabled = isSubmitting;
+  }
+
+  if (submitButton) {
+    submitButton.disabled = isSubmitting;
+    submitButton.dataset.originalText ||= submitButton.textContent.trim();
+    submitButton.textContent = isSubmitting ? "Listening..." : submitButton.dataset.originalText;
+  }
+}
+
+function showSignalResult(result) {
+  const failurePanel = document.querySelector("[data-failure-panel]");
+  const successPanel = document.querySelector("[data-success-panel]");
+  const responseInput = document.querySelector("[data-response-input]");
+  const submitButton = document.querySelector("[data-response-submit]");
+
+  if (failurePanel) failurePanel.hidden = true;
+  if (successPanel) successPanel.hidden = true;
+
+  if (result.accepted) {
+    if (successPanel) successPanel.hidden = false;
+
+    if (responseInput) responseInput.disabled = true;
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sent";
+    }
+
+    successPanel?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+
+    return;
+  }
+
+  if (failurePanel) {
+    const heading = failurePanel.querySelector("h2");
+    const copy = failurePanel.querySelector("p");
+
+    if (heading && result.title) heading.textContent = result.title;
+    if (copy && result.message) copy.textContent = result.message;
+
+    failurePanel.hidden = false;
+
+    failurePanel.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+  }
+}
+
+async function sendSignalResponse(responseText) {
+  const response = await fetch("/api/signal-01/respond", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      response: responseText
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error("Signal response failed.");
+  }
+
+  return response.json();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const beginSeasonButton = document.querySelector('[data-action="begin-season"]');
   const viewEpisodesButton = document.querySelector('[data-action="view-episodes"]');
@@ -21,34 +96,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const responseForm = document.querySelector("[data-response-form]");
   const responseInput = document.querySelector("[data-response-input]");
-  const responseMessage = document.querySelector("[data-response-message]");
-  const successPanel = document.querySelector("[data-success-panel]");
 
-  responseForm?.addEventListener("submit", (event) => {
+  responseForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const response = responseInput?.value.trim().toLowerCase() || "";
+    const responseText = responseInput?.value.trim() || "";
 
-    responseMessage.classList.remove("is-error");
-    responseMessage.textContent = "";
-
-    if (!response.includes("how")) {
-      responseMessage.classList.add("is-error");
-      responseMessage.textContent = "The signal does not respond.";
+    if (!responseText) {
+      showSignalResult({
+        accepted: false,
+        title: "The signal did not react",
+        message: "It must be expecting something else."
+      });
       return;
     }
 
-    responseInput.disabled = true;
+    setSubmitState(true);
 
-    const submitButton = responseForm.querySelector("button");
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = "Sent";
+    try {
+      const result = await sendSignalResponse(responseText);
+      showSignalResult(result);
+
+      if (!result.accepted) {
+        setSubmitState(false);
+      }
+    } catch (error) {
+      showSignalResult({
+        accepted: false,
+        title: "The receiver lost the signal",
+        message: "Try again in a moment."
+      });
+      setSubmitState(false);
     }
-
-    successPanel.hidden = false;
-
-    responseMessage.classList.remove("is-error");
-    responseMessage.textContent = "";
   });
 });
