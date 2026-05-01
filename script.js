@@ -40,11 +40,6 @@ function showSignalResult(result) {
       submitButton.textContent = "Sent";
     }
 
-    successPanel?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest"
-    });
-
     return;
   }
 
@@ -127,6 +122,23 @@ document.addEventListener("DOMContentLoaded", () => {
         message: "Try again in a moment."
       });
       setSubmitState(false);
+    }
+  });
+
+  const successCloseButtons = document.querySelectorAll("[data-success-close]");
+  const successPanel = document.querySelector("[data-success-panel]");
+
+  successCloseButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      if (successPanel) {
+        successPanel.hidden = true;
+      }
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && successPanel && !successPanel.hidden) {
+      successPanel.hidden = true;
     }
   });
 });
