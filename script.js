@@ -7,6 +7,50 @@ function navigateTo(url) {
   window.location.href = url;
 }
 
+function showReceiverLoading() {
+  const loadingOverlay = document.querySelector("[data-receiver-loading]");
+
+  if (loadingOverlay) {
+    loadingOverlay.hidden = false;
+  }
+}
+
+function hideReceiverLoading() {
+  const loadingOverlay = document.querySelector("[data-receiver-loading]");
+
+  if (loadingOverlay) {
+    loadingOverlay.hidden = true;
+  }
+}
+
+function initializeReceiverLoadingState() {
+  const arLinks = document.querySelectorAll('[rel="ar"][data-action="open-receiver"]');
+
+  arLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      showReceiverLoading();
+
+      window.setTimeout(() => {
+        hideReceiverLoading();
+      }, 9000);
+    });
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      hideReceiverLoading();
+    }
+  });
+
+  window.addEventListener("focus", () => {
+    hideReceiverLoading();
+  });
+
+  window.addEventListener("pageshow", () => {
+    hideReceiverLoading();
+  });
+}
+
 function setSubmitState(form, isSubmitting) {
   const responseInput = form.querySelector("[data-response-input]");
   const submitButton = form.querySelector("[data-response-submit]");
@@ -97,6 +141,8 @@ async function sendSignalResponse(endpoint, responseText) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initializeReceiverLoadingState();
+
   const beginSeasonButton = document.querySelector('[data-action="begin-season"]');
   const viewEpisodesButton = document.querySelector('[data-action="view-episodes"]');
 
@@ -159,6 +205,31 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && successPanel && !successPanel.hidden) {
       successPanel.hidden = true;
+    }
+  });
+
+  const feedbackButtons = document.querySelectorAll("[data-feedback]");
+
+  feedbackButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      feedbackButtons.forEach((otherButton) => {
+        otherButton.classList.remove("is-selected");
+      });
+
+      button.classList.add("is-selected");
+    });
+  });
+
+  const emailForm = document.querySelector("[data-email-form]");
+
+  emailForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const button = emailForm.querySelector("button");
+
+    if (button) {
+      button.textContent = "Saved";
+      button.disabled = true;
     }
   });
 });
